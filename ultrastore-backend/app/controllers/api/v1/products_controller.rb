@@ -21,9 +21,6 @@ class Api::V1::ProductsController < ApplicationController
         render json: @product, status: 200
     end
 
-    def index
-    end
-
     def destroy
         @product = Product.find(params[:id])
         @product.delete
