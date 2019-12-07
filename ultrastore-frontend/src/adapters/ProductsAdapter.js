@@ -6,4 +6,20 @@ class ProductsAdapter {
     getProducts() {
         return fetch(this.baseUrl).then(res => res.json())
     }
+
+    createProduct(titleValue, priceValue, descriptionValue) {
+        const product = {
+            title: titleValue,
+            price: priceValue,
+            description: descriptionValue
+        }
+        return fetch(this.baseUrl, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({ product }),
+        }).then(res => res.json())
+    }
+
 }
