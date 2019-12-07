@@ -6,7 +6,11 @@ class Product {
         this.description = productJSON.description
     }
 
-    renderLi() {
-        return `<li>${this.title} - ${this.price} - ${this.description} </li>`
+    renderCard() {
+        const productCard = `<div class="card>
+        <h2>${this.title}</h2>
+        <h3>$${this.price}</h3>
+        <p>${this.description}</p><br></br>`
+        return productCard
     }
 }

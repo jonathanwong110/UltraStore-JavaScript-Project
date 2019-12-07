@@ -51,6 +51,6 @@ class Products {
     }
 
     render() {
-        this.productsContainer.innerHTML = this.products.map(product => product.renderLi()).join('')
+        this.productsContainer.innerHTML = this.products.map(product => product.renderCard()).join('')
     }
 }
