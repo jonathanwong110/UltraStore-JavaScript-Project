@@ -13,6 +13,18 @@ class Products {
         this.newProductDescription = document.getElementById('new-product-description')
         this.productForm = document.getElementById('new-product-form')
         this.productForm.addEventListener('submit', this.createProduct.bind(this))
+        this.productsContainer.addEventListener('dblclick', this.handleProductClick.bind(this))
+        this.productsContainer.addEventListener('blur', this.updateProduct.bind(this))
+    }
+
+    handleProductClick(e) {
+        const li = e.target
+        li.contentEditable = true
+        li.classList.add('editable')
+    }
+
+    updateProduct() {
+        
     }
 
     createProduct(e) {
@@ -22,6 +34,10 @@ class Products {
         const descriptionValue = this.newProductDescription.value
         this.adapter.createProduct(titleValue, priceValue, descriptionValue).then(product => {
             this.products.push(new Product(product))
+            this.newProductTitle.value = ""
+            this.newProductPrice.value = ""
+            this.newProductDescription.value = ""
+            this.render()
         })
     }
 
