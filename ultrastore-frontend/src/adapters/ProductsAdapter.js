@@ -22,4 +22,19 @@ class ProductsAdapter {
         }).then(res => res.json())
     }
 
+    updateProduct(titleValue, priceValue, descriptionValue, id) {
+        const product = {
+            title: titleValue,
+            price: priceValue,
+            description: descriptionValue
+        }
+        return fetch(`${this.baseUrl}/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({ product }),
+        }).then(res => res.json())
+    }
+
 }

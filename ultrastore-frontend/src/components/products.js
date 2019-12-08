@@ -14,17 +14,23 @@ class Products {
         this.productForm = document.getElementById('new-product-form')
         this.productForm.addEventListener('submit', this.createProduct.bind(this))
         this.productsContainer.addEventListener('dblclick', this.handleProductClick.bind(this))
-        this.productsContainer.addEventListener('blur', this.updateProduct.bind(this))
+        this.productsContainer.addEventListener('blur', this.updateProduct.bind(this), true)
     }
 
     handleProductClick(e) {
-        const li = e.target
-        li.contentEditable = true
-        li.classList.add('editable')
+        const card = e.target
+        card.contentEditable = true
+        card.focus()
+        card.classList.add('editable')
     }
 
-    updateProduct() {
-        
+    updateProduct(e) {
+        const card = e.target
+        card.contentEditable = false
+        card.classList.remove('editable')
+        const newValue = card.innerHTML
+        const id = card.datset.id
+        this.adapter.updateNote(newValue, id)
     }
 
     createProduct(e) {
