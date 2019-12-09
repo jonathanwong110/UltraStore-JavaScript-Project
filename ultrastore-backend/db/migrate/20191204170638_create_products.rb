@@ -4,6 +4,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :title
       t.integer :price
       t.string :description
+      t.string :image
       t.timestamps
     end
   end

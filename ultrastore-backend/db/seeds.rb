@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Product.create([
-    { title: 'hat', price: 30, description: 'new'},
-    { title: 'sneakers', price: 100, description: 'worn'},
-    { title: 'jeans', price: 50, description: 'new'}
+    { title: 'hat', price: 30, description: 'new', image: 'https://www.rei.com/media/6f8be96e-a698-4076-9b6e-cb70e30445e6?size=512x682'},
+    { title: 'sneakers', price: 100, description: 'worn', image: 'https://cdn.shopify.com/s/files/1/0238/2821/products/Mens-193-Royale-Blanco-3RMW-Product-102_3d9c4e83-a5c5-4326-91b8-0308fa05101e.jpg?v=1563990962'},
+    { title: 'jeans', price: 50, description: 'new', image: 'https://media.gq.com/photos/5daf1e5e4e024d0009825d71/master/w_2000,h_1333,c_limit/Abercrombie-Jeans.jpg'}
 ])
