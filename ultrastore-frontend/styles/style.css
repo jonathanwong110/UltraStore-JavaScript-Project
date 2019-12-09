@@ -7,7 +7,6 @@ body {
     display: flex;
     flex-flow: row wrap;
     max-width: 1000px;
-    /* justify-content: space-between; */
 }
 
 .card {
@@ -18,10 +17,4 @@ body {
     margin: 10px 5px;
     padding: 8px;
 }
-
-.image {
-    display: block;
-    width: 40%;
-    height: auto;
-  }
   

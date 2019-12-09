@@ -30,9 +30,10 @@ class Products {
         card.contentEditable = false
         card.classList.remove('editable')
         const newValue = card.innerHTML
-        //debugger
-        const id = card.datset.id
-        this.adapter.updateNote(newValue, id)
+        debugger
+        const productId = parseInt(card.datset.id)
+        console.log(id)
+        this.adapter.updateProduct(newValue, productId)
     }
 
     createProduct(e) {
