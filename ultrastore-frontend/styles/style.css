@@ -1,0 +1,19 @@
+body {
+    margin: 0 auto;
+    width: 90%;
+}
+
+#products-container {
+    display: flex;
+    flex-flow: column wrap;
+    max-width: 1000px;
+}
+
+.card {
+    flex: 1;
+    max-width: 250px;
+    height: 250px;
+    border: solid black 1px;
+    margin: 10px 5px;
+    padding: 8px;
+}

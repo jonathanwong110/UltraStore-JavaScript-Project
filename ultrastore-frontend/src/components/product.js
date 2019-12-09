@@ -10,7 +10,7 @@ class Product {
         const productCard = `<div class='card' data-id='${this.id}'>
         <h2>${this.title}</h2>
         <h3>$${this.price}</h3>
-        <p>${this.description}</p><br></br>`
+        <p>${this.description}</p></div>`
         return productCard
     }
 }
