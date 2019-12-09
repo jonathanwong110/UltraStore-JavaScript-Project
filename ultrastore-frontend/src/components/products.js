@@ -11,6 +11,7 @@ class Products {
         this.newProductTitle = document.getElementById('new-product-title')
         this.newProductPrice = document.getElementById('new-product-price')
         this.newProductDescription = document.getElementById('new-product-description')
+        this.newProductImage = document.getElementById('new-product-image')
         this.productForm = document.getElementById('new-product-form')
         this.productForm.addEventListener('submit', this.createProduct.bind(this))
         this.productsContainer.addEventListener('dblclick', this.handleProductClick.bind(this))
@@ -29,6 +30,7 @@ class Products {
         card.contentEditable = false
         card.classList.remove('editable')
         const newValue = card.innerHTML
+        //debugger
         const id = card.datset.id
         this.adapter.updateNote(newValue, id)
     }
@@ -38,11 +40,13 @@ class Products {
         const titleValue = this.newProductTitle.value
         const priceValue = this.newProductPrice.value
         const descriptionValue = this.newProductDescription.value
-        this.adapter.createProduct(titleValue, priceValue, descriptionValue).then(product => {
+        const imageValue = this.newProductImage.value
+        this.adapter.createProduct(titleValue, priceValue, descriptionValue, imageValue).then(product => {
             this.products.push(new Product(product))
             this.newProductTitle.value = ""
             this.newProductPrice.value = ""
             this.newProductDescription.value = ""
+            this.newProductImage.value = ""
             this.render()
         })
     }

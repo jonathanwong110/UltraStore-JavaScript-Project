@@ -7,11 +7,12 @@ class ProductsAdapter {
         return fetch(this.baseUrl).then(res => res.json())
     }
 
-    createProduct(titleValue, priceValue, descriptionValue) {
+    createProduct(titleValue, priceValue, descriptionValue, imageValue) {
         const product = {
             title: titleValue,
             price: priceValue,
-            description: descriptionValue
+            description: descriptionValue,
+            image: imageValue
         }
         return fetch(this.baseUrl, {
             method: 'POST',
@@ -22,11 +23,12 @@ class ProductsAdapter {
         }).then(res => res.json())
     }
 
-    updateProduct(titleValue, priceValue, descriptionValue, id) {
+    updateProduct(titleValue, priceValue, descriptionValue, imageValue, id) {
         const product = {
             title: titleValue,
             price: priceValue,
-            description: descriptionValue
+            description: descriptionValue,
+            image: imageValue
         }
         return fetch(`${this.baseUrl}/${id}`, {
             method: 'PATCH',
