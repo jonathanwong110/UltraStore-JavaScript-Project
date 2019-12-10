@@ -10,10 +10,10 @@ class Product {
 
     renderCard() {
         const productCard = `<div class='card' data-id='${this.id}'>
-        <h2 data-id='${this.id}'><a href="http://localhost:3000/api/v1/products/${this.id}">${this.title} </a></h2>
-        <img src='${this.image}' class="image" height="100" width="100">
-        <h3 data-id='${this.id}'>$${this.price}</h3>
-        <p data-id='${this.id}'>${this.description}</p></div>`
+        <h2>${this.title}</h2>
+        <img src='${this.image}' height="100" width="100">
+        <h3>${this.price}</h3>
+        <p>${this.description}</p></div>`
         return productCard
     }
 }

@@ -23,12 +23,12 @@ class ProductsAdapter {
         }).then(res => res.json())
     }
 
-    updateProduct(titleValue, priceValue, descriptionValue, imageValue, id) {
+    updateProduct(newProductTitle, newProductPrice, newProductDescription, newProductImage, id) {
         const product = {
-            title: titleValue,
-            price: priceValue,
-            description: descriptionValue,
-            image: imageValue
+            title: newProductTitle,
+            price: newProductPrice,
+            description: newProductDescription,
+            image: newProductImage
         }
         return fetch(`${this.baseUrl}/${id}`, {
             method: 'PATCH',

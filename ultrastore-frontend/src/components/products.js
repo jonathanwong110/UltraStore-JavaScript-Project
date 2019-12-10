@@ -26,14 +26,15 @@ class Products {
     }
 
     updateProduct(e) {
-        const card = e.target
+        const card = e.target.parentElement
         card.contentEditable = false
         card.classList.remove('editable')
-        const newValue = card.innerHTML
-        debugger
-        const productId = parseInt(card.datset.id)
-        console.log(id)
-        this.adapter.updateProduct(newValue, productId)
+        const newProductTitle = card.querySelector('h2').innerHTML
+        const newProductPrice = card.querySelector('h3').innerHTML
+        const newProductDescription = card.querySelector('p').innerHTML
+        const newProductImage = card.querySelector('img').src
+        const id = card.dataset.id
+        this.adapter.updateProduct(newProductTitle, newProductPrice, newProductDescription, newProductImage, id)
     }
 
     createProduct(e) {
