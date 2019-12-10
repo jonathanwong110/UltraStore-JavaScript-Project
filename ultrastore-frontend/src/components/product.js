@@ -13,7 +13,9 @@ class Product {
         <h2>${this.title}</h2>
         <img src='${this.image}' height="100" width="100">
         <h3>${this.price}</h3>
-        <p>${this.description}</p></div>`
+        <p>${this.description}</p>
+        <button class="remove" data-product-id=${this.id} "deleteProduct(${this.id})">Delete Product</button>
+        </div>`
         return productCard
     }
 }

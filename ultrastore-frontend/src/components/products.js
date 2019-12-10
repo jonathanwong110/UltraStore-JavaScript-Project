@@ -53,6 +53,14 @@ class Products {
         })
     }
 
+    deleteProduct(e) {
+        e.preventDefault()
+        const card = e.target.parentElement
+        const id = card.dataset.id
+        this.adapter.deleteProduct(id)
+    }
+
+
     fetchAndLoadProducts() {
         this.adapter.getProducts().then(products => {
             products.forEach(product => this.products.push(new Product(product)))
