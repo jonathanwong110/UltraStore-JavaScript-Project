@@ -11,3 +11,12 @@ Product.create([
     { title: 'Sneakers', price: 100, description: 'worn', image: 'https://cdn.shopify.com/s/files/1/0238/2821/products/Mens-193-Royale-Blanco-3RMW-Product-102_3d9c4e83-a5c5-4326-91b8-0308fa05101e.jpg?v=1563990962'},
     { title: 'Jeans', price: 50, description: 'new', image: 'https://media.gq.com/photos/5daf1e5e4e024d0009825d71/master/w_2000,h_1333,c_limit/Abercrombie-Jeans.jpg'}
 ])
+
+Review.create([
+    { content: "Testing Review 1", product_id: 1},
+    { content: "Testing Review 2", product_id: 1},
+    { content: "Testing Review 3", product_id: 2},
+    { content: "Testing Review 4", product_id: 2},
+    { content: "Testing Review 5", product_id: 3},
+    { content: "Testing Review 6", product_id: 3}
+])

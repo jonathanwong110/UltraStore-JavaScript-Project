@@ -1,20 +1,22 @@
 body {
     margin: 0 auto;
     width: 90%;
+    background-color:lightgray;
 }
 
 #products-container {
     display: flex;
     flex-flow: row wrap;
-    max-width: 1000px;
+    max-width: 1500px;
 }
 
 .card {
     flex: 0 0 auto;
-    width: 250px;
-    height: 300px;
+    width: 300px;
+    height: 500px;
     border: solid black 1px;
     margin: 10px 10px;
     padding: 8px;
+    text-align: center;
 }
   

@@ -39,7 +39,7 @@ class ProductsAdapter {
         }).then(res => res.json())
     }
 
-    deletePokemon(id){
+    deleteProduct(id){
         fetch(`${this.baseUrl}/${id}`, {
           method: "DELETE",
         })

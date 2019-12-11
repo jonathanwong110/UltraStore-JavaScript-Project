@@ -1,8 +1,17 @@
-class ReviewsController < ApplicationController
+class Api::V1::ReviewsController < ApplicationController
   
+  def index
+    @reviews = Review.all
+    render json: @reviews, status: 200
+  end
+
   def show
     @review = Review.find(params[:id])
     render json: @review, status: 200
+  end
+
+  def matching
+    @reviews = Review.where(product_id = product_id)
   end
 
   def create

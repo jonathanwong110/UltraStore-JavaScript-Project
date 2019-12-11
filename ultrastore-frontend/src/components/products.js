@@ -16,6 +16,7 @@ class Products {
         this.productForm.addEventListener('submit', this.createProduct.bind(this))
         this.productsContainer.addEventListener('dblclick', this.handleProductClick.bind(this))
         this.productsContainer.addEventListener('blur', this.updateProduct.bind(this), true)
+        this.productsContainer.addEventListener('click', this.deleteProduct.bind(this), true)
     }
 
     handleProductClick(e) {
