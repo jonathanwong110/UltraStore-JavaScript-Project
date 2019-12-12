@@ -16,7 +16,7 @@ class Products {
         this.productForm.addEventListener('submit', this.createProduct.bind(this))
         this.productsContainer.addEventListener('dblclick', this.handleProductClick.bind(this))
         this.productsContainer.addEventListener('blur', this.updateProduct.bind(this), true)
-        this.productsContainer.addEventListener('click', this.deleteProduct.bind(this), true)
+        // this.productsContainer.addEventListener('click', this.showProduct.bind(this), true)
     }
 
     handleProductClick(e) {
@@ -54,13 +54,21 @@ class Products {
         })
     }
 
-    deleteProduct(e) {
-        e.preventDefault()
-        const card = e.target.parentElement
-        const id = card.dataset.id
-        this.adapter.deleteProduct(id)
-    }
+    // deleteProduct(e) {
+    //     e.preventDefault()
+    //     const card = e.target.parentElement
+    //     const id = card.dataset.id
+    //     debugger
+    //     this.adapter.deleteProduct(id)
+    // }
 
+    showProduct(e) {
+        e.preventDefault()
+        const card = e.target
+        const id = card.dataset.productId
+        // debugger
+        this.adapter.showProduct(id)
+    }
 
     fetchAndLoadProducts() {
         this.adapter.getProducts().then(products => {

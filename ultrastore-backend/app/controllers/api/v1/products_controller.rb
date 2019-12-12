@@ -2,7 +2,7 @@ class Api::V1::ProductsController < ApplicationController
     
     def index
         @products = Product.all
-        render json: @products, status: 200
+        render json: @products.to_json(:include => :reviews), status: 200
     end
 
     def show

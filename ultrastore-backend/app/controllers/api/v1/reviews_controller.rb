@@ -10,10 +10,6 @@ class Api::V1::ReviewsController < ApplicationController
     render json: @review, status: 200
   end
 
-  def matching
-    @reviews = Review.where(product_id = product_id)
-  end
-
   def create
     @review = Review.create(review_params)
     render json: @review, status: 200

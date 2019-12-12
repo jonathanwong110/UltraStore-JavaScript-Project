@@ -7,6 +7,18 @@ class ProductsAdapter {
         return fetch(this.baseUrl).then(res => res.json())
     }
 
+    showProduct(id) {
+        return fetch(`${this.baseUrl}/${id}`).then(res => res.json())
+    }
+
+    showProduct(id) {
+        fetch(`${this.baseUrl}/${id}`, {
+          method: "GET",
+        })
+        .then(response => response.json())
+        .then(response => {return response})
+    }
+
     createProduct(titleValue, priceValue, descriptionValue, imageValue) {
         const product = {
             title: titleValue,
@@ -39,7 +51,7 @@ class ProductsAdapter {
         }).then(res => res.json())
     }
 
-    deleteProduct(id){
+    deleteProduct(id) {
         fetch(`${this.baseUrl}/${id}`, {
           method: "DELETE",
         })
