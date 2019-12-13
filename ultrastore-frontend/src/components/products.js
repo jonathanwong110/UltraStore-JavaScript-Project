@@ -16,14 +16,17 @@ class Products {
         this.productForm.addEventListener('submit', this.createProduct.bind(this))
         this.productsContainer.addEventListener('dblclick', this.handleProductClick.bind(this))
         this.productsContainer.addEventListener('blur', this.updateProduct.bind(this), true)
-        // this.productsContainer.addEventListener('click', this.showProduct.bind(this), true)
+        this.productsContainer.addEventListener('click', this.deleteProduct.bind(this), true)
+        this.productsContainer.addEventListener('click', this.showProduct.bind(this), true)
     }
 
     handleProductClick(e) {
         const card = e.target
-        card.contentEditable = true
-        card.focus()
-        card.classList.add('editable')
+        if (card.attributes && card.attributes.class && card.attributes.class.value === "selectable") {
+            card.contentEditable = true
+            card.focus()
+            card.classList.add('editable')
+        }
     }
 
     updateProduct(e) {
@@ -54,20 +57,23 @@ class Products {
         })
     }
 
-    // deleteProduct(e) {
-    //     e.preventDefault()
-    //     const card = e.target.parentElement
-    //     const id = card.dataset.id
-    //     debugger
-    //     this.adapter.deleteProduct(id)
-    // }
+    deleteProduct(e) {
+        e.preventDefault()
+        const card = e.target
+        if (card.attributes && card.attributes.class && card.attributes.class.value === "removable") {
+            const id = card.dataset.productId
+            debugger
+            this.adapter.deleteProduct(id)  
+        }
+    }
 
     showProduct(e) {
         e.preventDefault()
         const card = e.target
-        const id = card.dataset.productId
-        // debugger
-        this.adapter.showProduct(id)
+        if (card.attributes && card.attributes.class && card.attributes.class.value === "showable") {
+            const id = card.dataset.productId
+            this.adapter.showProduct(id)
+        }
     }
 
     fetchAndLoadProducts() {
