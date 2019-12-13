@@ -25,10 +25,10 @@ body {
     background-color:lightblue;
 }
 
-#product-show {
+.product-show {
     flex: 0 0 auto;
-    width: 500px;
-    height: 500px;
+    width: 1000px;
+    height: 1000px;
     border: solid black 1px;
     margin: 10px 10px;
     padding: 8px;

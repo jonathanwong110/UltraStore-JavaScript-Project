@@ -51,28 +51,34 @@ class Products {
         if (card.attributes && card.attributes.class && card.attributes.class.value === "showable") {
             const id = card.dataset.productId
             this.adapter.showProduct(id)
-            const productDisplay = document.getElementById('product-show')
-            productDisplay.innerHTML += '<h1>Currently Viewing</h1>'
-            // const productCard = card.parentElement.innerHTML
-            // productDisplay.innerHTML = '<h1>Currently Viewing</h1>' + productCard + '<h2>Reviews</h2>'
+            const productOuterDisplay = document.getElementById('product-single-display')
+            const productInnerDisplay = document.createElement("div")
+            productInnerDisplay.setAttribute("class", "product-show")
+            productOuterDisplay.appendChild(productInnerDisplay)
+            productInnerDisplay.innerHTML += '<h1>Currently Viewing</h1>'
             let superProductImage = document.createElement("img");
-            let superProductImageValue = document.createTextNode(card.parentElement.children[0].src);
-            superProductImage.append(superProductImageValue);
-            debugger
-            productDisplay.appendChild(superProductImage)
+            superProductImage.src = (card.parentElement.children[0].src);
+            superProductImage.setAttribute("width", "250");
+            superProductImage.setAttribute("height", "250");
+            productInnerDisplay.append(superProductImage);
+            productInnerDisplay.appendChild(superProductImage)
             let superProductTitle = document.createElement("h2");
             let superProductTitleText = document.createTextNode(card.parentElement.children[1].innerHTML);
             superProductTitle.appendChild(superProductTitleText);
-            productDisplay.appendChild(superProductTitle)
+            productInnerDisplay.appendChild(superProductTitle)
             let superProductPrice = document.createElement("h3");
             let superProductPriceText = document.createTextNode(card.parentElement.children[2].innerHTML);
             superProductPrice.appendChild(superProductPriceText);
-            productDisplay.appendChild(superProductPrice)
+            productInnerDisplay.appendChild(superProductPrice)
             let superProductDescription = document.createElement("h3");
             let superProductDescriptionText = document.createTextNode(card.parentElement.children[3].innerHTML);
             superProductDescription.appendChild(superProductDescriptionText);
-            productDisplay.appendChild(superProductDescription)
-            productDisplay.innerHTML += '<h2>Reviews</h2>'
+            productInnerDisplay.appendChild(superProductDescription)
+            const reviewForm = `<div class='card-review-form data-id='${id}'>
+            <b>Leave a Review: </b><input type="text" name="review-content" id="review-id">
+            <input type="submit" value="Submit Review">
+            </div>'`
+            productInnerDisplay.innerHTML += '<h2>Reviews</h2>' + reviewForm
         }
     }
 
