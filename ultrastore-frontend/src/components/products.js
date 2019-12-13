@@ -29,18 +29,6 @@ class Products {
         }
     }
 
-    updateProduct(e) {
-        const card = e.target.parentElement
-        card.contentEditable = false
-        card.classList.remove('editable')
-        const newProductTitle = card.querySelector('h2').innerHTML
-        const newProductPrice = card.querySelector('h3').innerHTML
-        const newProductDescription = card.querySelector('p').innerHTML
-        const newProductImage = card.querySelector('img').src
-        const id = card.dataset.id
-        this.adapter.updateProduct(newProductTitle, newProductPrice, newProductDescription, newProductImage, id)
-    }
-
     createProduct(e) {
         e.preventDefault()
         const titleValue = this.newProductTitle.value
@@ -57,22 +45,38 @@ class Products {
         })
     }
 
-    deleteProduct(e) {
-        e.preventDefault()
-        const card = e.target
-        if (card.attributes && card.attributes.class && card.attributes.class.value === "removable") {
-            const id = card.dataset.productId
-            debugger
-            this.adapter.deleteProduct(id)  
-        }
-    }
-
     showProduct(e) {
         e.preventDefault()
         const card = e.target
         if (card.attributes && card.attributes.class && card.attributes.class.value === "showable") {
             const id = card.dataset.productId
             this.adapter.showProduct(id)
+            const productCard = card.parentElement.innerHTML
+            const productDisplay = document.getElementById('product-show')
+            console.log('productCard', productCard)
+            productDisplay.innerHTML = '<h1>Currently Viewing</h1>' + productCard + '<h2>Reviews</h2>'
+            debugger
+        }
+    }
+
+    updateProduct(e) {
+        const card = e.target.parentElement
+        card.contentEditable = false
+        card.classList.remove('editable')
+        const newProductTitle = card.querySelector('h2').innerHTML
+        const newProductPrice = card.querySelector('h3').innerHTML
+        const newProductDescription = card.querySelector('p').innerHTML
+        const newProductImage = card.querySelector('img').src
+        const id = card.dataset.id
+        this.adapter.updateProduct(newProductTitle, newProductPrice, newProductDescription, newProductImage, id)
+    }
+
+    deleteProduct(e) {
+        e.preventDefault()
+        const card = e.target
+        if (card.attributes && card.attributes.class && card.attributes.class.value === "removable") {
+            const id = card.dataset.productId
+            this.adapter.deleteProduct(id)  
         }
     }
 
