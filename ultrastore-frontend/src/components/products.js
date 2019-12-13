@@ -51,11 +51,28 @@ class Products {
         if (card.attributes && card.attributes.class && card.attributes.class.value === "showable") {
             const id = card.dataset.productId
             this.adapter.showProduct(id)
-            const productCard = card.parentElement.innerHTML
             const productDisplay = document.getElementById('product-show')
-            console.log('productCard', productCard)
-            productDisplay.innerHTML = '<h1>Currently Viewing</h1>' + productCard + '<h2>Reviews</h2>'
+            productDisplay.innerHTML += '<h1>Currently Viewing</h1>'
+            // const productCard = card.parentElement.innerHTML
+            // productDisplay.innerHTML = '<h1>Currently Viewing</h1>' + productCard + '<h2>Reviews</h2>'
+            let superProductImage = document.createElement("img");
+            let superProductImageValue = document.createTextNode(card.parentElement.children[0].src);
+            superProductImage.append(superProductImageValue);
             debugger
+            productDisplay.appendChild(superProductImage)
+            let superProductTitle = document.createElement("h2");
+            let superProductTitleText = document.createTextNode(card.parentElement.children[1].innerHTML);
+            superProductTitle.appendChild(superProductTitleText);
+            productDisplay.appendChild(superProductTitle)
+            let superProductPrice = document.createElement("h3");
+            let superProductPriceText = document.createTextNode(card.parentElement.children[2].innerHTML);
+            superProductPrice.appendChild(superProductPriceText);
+            productDisplay.appendChild(superProductPrice)
+            let superProductDescription = document.createElement("h3");
+            let superProductDescriptionText = document.createTextNode(card.parentElement.children[3].innerHTML);
+            superProductDescription.appendChild(superProductDescriptionText);
+            productDisplay.appendChild(superProductDescription)
+            productDisplay.innerHTML += '<h2>Reviews</h2>'
         }
     }
 
