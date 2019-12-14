@@ -6,6 +6,7 @@ class Product {
         this.price = productJSON.price
         this.description = productJSON.description
         this.image = productJSON.image
+        this.reviews = productJSON.reviews
     }
 
     renderCard() {
