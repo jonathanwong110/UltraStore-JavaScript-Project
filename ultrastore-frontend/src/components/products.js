@@ -74,11 +74,21 @@ class Products {
             let superProductDescriptionText = document.createTextNode(card.parentElement.children[3].innerHTML);
             superProductDescription.appendChild(superProductDescriptionText);
             productInnerDisplay.appendChild(superProductDescription)
-            const reviewForm = `<div class='card-review-form data-id='${id}'>
+            const reviewForm = `<div id='card-review-form' data-id='${id}'>
+            <h2>Reviews</h2>
             <b>Leave a Review: </b><input type="text" name="review-content" id="review-id">
             <input type="submit" value="Submit Review">
-            </div>'`
-            productInnerDisplay.innerHTML += '<h2>Reviews</h2>' + reviewForm
+            <br></br>
+            </div>`
+            productInnerDisplay.innerHTML += reviewForm
+            const specificProductReviews = this.products[id].reviews
+            specificProductReviews.forEach(function (specificReview) {
+                const elementForReview = document.createElement("li")
+                const reviewDetail = document.createTextNode(specificReview.content)
+                elementForReview.appendChild(reviewDetail)
+                const spaceForReview = document.getElementById('card-review-form')
+                spaceForReview.append(elementForReview)
+            });
         }
     }
 
