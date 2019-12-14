@@ -49,9 +49,9 @@ class Products {
         e.preventDefault()
         const card = e.target
         if (card.attributes && card.attributes.class && card.attributes.class.value === "showable") {
-            const id = card.dataset.productId
-            this.adapter.showProduct(id)
+            const id = parseInt(card.dataset.productId)
             const productOuterDisplay = document.getElementById('product-single-display')
+            productOuterDisplay.innerHTML = ""
             const productInnerDisplay = document.createElement("div")
             productInnerDisplay.setAttribute("class", "product-show")
             productOuterDisplay.appendChild(productInnerDisplay)
@@ -74,19 +74,16 @@ class Products {
             let superProductDescriptionText = document.createTextNode(card.parentElement.children[3].innerHTML);
             superProductDescription.appendChild(superProductDescriptionText);
             productInnerDisplay.appendChild(superProductDescription)
-            const reviewForm = `<div id='card-review-form' data-id='${id}'>
+            const reviewForm = `<div id='card-reviews'>
             <h2>Reviews</h2>
-            <b>Leave a Review: </b><input type="text" name="review-content" id="review-id">
-            <input type="submit" value="Submit Review">
-            <br></br>
             </div>`
             productInnerDisplay.innerHTML += reviewForm
-            const specificProductReviews = this.products[id].reviews
+            const specificProductReviews = this.products.filter(product => product.id === id)[0].reviews
             specificProductReviews.forEach(function (specificReview) {
                 const elementForReview = document.createElement("li")
                 const reviewDetail = document.createTextNode(specificReview.content)
                 elementForReview.appendChild(reviewDetail)
-                const spaceForReview = document.getElementById('card-review-form')
+                const spaceForReview = document.getElementById('card-reviews')
                 spaceForReview.append(elementForReview)
             });
         }

@@ -15,14 +15,14 @@ Product.create([
 ])
 
 Review.create([
-    { content: "Testing Review 1", product_id: 1},
-    { content: "Testing Review 2", product_id: 1},
-    { content: "Testing Review 3", product_id: 2},
-    { content: "Testing Review 4", product_id: 2},
-    { content: "Testing Review 5", product_id: 3},
-    { content: "Testing Review 6", product_id: 3},
-    { content: "Testing Review 7", product_id: 4},
-    { content: "Testing Review 8", product_id: 4},
-    { content: "Testing Review 7", product_id: 5},
-    { content: "Testing Review 8", product_id: 5}
+    { content: "The hat looks great!", product_id: 1},
+    { content: "It was so good that I bought a second hat", product_id: 1},
+    { content: "The sneakers fit great and are comfortable", product_id: 2},
+    { content: "I've gotten compliments on these shoes. 10/10", product_id: 2},
+    { content: "I love these jeans", product_id: 3},
+    { content: "These jeans fit perfectly!", product_id: 3},
+    { content: "I'm able to breath so much better", product_id: 4},
+    { content: "Bought this for a friend. They loved it.", product_id: 4},
+    { content: "The noise cancellation is great on these.", product_id: 5},
+    { content: "I recommended these headphones to my friend", product_id: 5}
 ])
