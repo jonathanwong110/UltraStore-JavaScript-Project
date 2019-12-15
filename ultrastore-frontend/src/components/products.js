@@ -48,7 +48,7 @@ class Products {
     showProduct(e) {
         e.preventDefault()
         const card = e.target
-        if (card.attributes && card.attributes.class && card.attributes.class.value === "showable") {
+        if (card.attributes && card.attributes.class && card.attributes.class.value === "viewable") {
             const id = parseInt(card.dataset.productId)
             const productOuterDisplay = document.getElementById('product-single-display')
             productOuterDisplay.innerHTML = ""
@@ -56,23 +56,23 @@ class Products {
             productInnerDisplay.setAttribute("class", "product-show")
             productOuterDisplay.appendChild(productInnerDisplay)
             productInnerDisplay.innerHTML += '<h1>Currently Viewing</h1>'
-            let superProductImage = document.createElement("img");
-            superProductImage.src = (card.parentElement.children[0].src);
-            superProductImage.setAttribute("width", "250");
-            superProductImage.setAttribute("height", "250");
-            productInnerDisplay.append(superProductImage);
+            let superProductImage = document.createElement("img")
+            superProductImage.src = (card.parentElement.children[0].src)
+            superProductImage.setAttribute("width", "250")
+            superProductImage.setAttribute("height", "250")
+            productInnerDisplay.append(superProductImage)
             productInnerDisplay.appendChild(superProductImage)
-            let superProductTitle = document.createElement("h2");
-            let superProductTitleText = document.createTextNode(card.parentElement.children[1].innerHTML);
-            superProductTitle.appendChild(superProductTitleText);
+            let superProductTitle = document.createElement("h2")
+            let superProductTitleText = document.createTextNode(card.parentElement.children[1].innerHTML)
+            superProductTitle.appendChild(superProductTitleText)
             productInnerDisplay.appendChild(superProductTitle)
-            let superProductPrice = document.createElement("h3");
-            let superProductPriceText = document.createTextNode(card.parentElement.children[2].innerHTML);
-            superProductPrice.appendChild(superProductPriceText);
+            let superProductPrice = document.createElement("h3")
+            let superProductPriceText = document.createTextNode(card.parentElement.children[2].innerHTML)
+            superProductPrice.appendChild(superProductPriceText)
             productInnerDisplay.appendChild(superProductPrice)
-            let superProductDescription = document.createElement("h3");
-            let superProductDescriptionText = document.createTextNode(card.parentElement.children[3].innerHTML);
-            superProductDescription.appendChild(superProductDescriptionText);
+            let superProductDescription = document.createElement("h3")
+            let superProductDescriptionText = document.createTextNode(card.parentElement.children[3].innerHTML)
+            superProductDescription.appendChild(superProductDescriptionText)
             productInnerDisplay.appendChild(superProductDescription)
             const reviewForm = `<div id='card-reviews'>
             <h2>Reviews</h2>
@@ -85,7 +85,7 @@ class Products {
                 elementForReview.appendChild(reviewDetail)
                 const spaceForReview = document.getElementById('card-reviews')
                 spaceForReview.append(elementForReview)
-            });
+            })
         }
     }
 
@@ -106,7 +106,8 @@ class Products {
         const card = e.target
         if (card.attributes && card.attributes.class && card.attributes.class.value === "removable") {
             const id = card.dataset.productId
-            this.adapter.deleteProduct(id)  
+            this.adapter.deleteProduct(id)
+            location.reload();
         }
     }
 
