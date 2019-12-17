@@ -107,7 +107,7 @@ class Products {
         if (card.attributes && card.attributes.class && card.attributes.class.value === "removable") {
             const id = card.dataset.productId
             this.adapter.deleteProduct(id)
-            location.reload();
+            card.parentElement.remove()
         }
     }
 
