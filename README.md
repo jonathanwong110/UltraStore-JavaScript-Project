@@ -1,6 +1,6 @@
 # UltraStore
 
-UltraStore is a platform where users can post products and check reviews for other items.
+UltraStore is a platform where users can post products while viewing other products and their reviews.
 
 ## Installation
 
@@ -16,4 +16,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 	
-Everyone interacting in the MegaStore project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/jonathanwong110/MegaStore-Rails-Project).
+Everyone interacting in the UltraStore project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/jonathanwong110/UltraStore-JavaScript-Project/).
