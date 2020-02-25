@@ -18,6 +18,8 @@ class Products {
         this.productsContainer.addEventListener('blur', this.updateProduct.bind(this), true)
         this.productsContainer.addEventListener('click', this.deleteProduct.bind(this), true)
         this.productsContainer.addEventListener('click', this.showProduct.bind(this), true)
+        this.productsContainer.addEventListener('click', this.likeProduct.bind(this), true)
+        // this.productsContainer.addEventListener('click', this.closeProduct.bind(this), true)
     }
 
     handleProductClick(e) {
@@ -77,7 +79,9 @@ class Products {
             const reviewForm = `<div id='card-reviews'>
             <h2>Reviews</h2>
             </div>`
+            const closableButton = `<br></br> <button class="closable" onClick={closeProduct(e)}> Close </button>`
             productInnerDisplay.innerHTML += reviewForm
+            productInnerDisplay.innerHTML += closableButton
             const specificProductReviews = this.products.filter(product => product.id === id)[0].reviews
             specificProductReviews.forEach(function (specificReview) {
                 const elementForReview = document.createElement("li")
@@ -119,6 +123,24 @@ class Products {
             this.render()
         })
     }
+
+    likeProduct(e) {
+        e.preventDefault()
+        const card = e.target
+        const id = parseInt(card.dataset.productId)
+        if (card.attributes && card.attributes.class && card.attributes.class.value === "likeable") {
+            this.likes = parseInt(card.parentElement.children[9].innerHTML)
+            this.likes += 1
+            document.getElementById(`likes-product-id-${id}`).innerHTML = this.likes + " Like(s)"
+        }
+    }
+
+    // closeProduct(e) {
+    //     e.preventDefault()
+    //     const productOuterDisplay = document.getElementById('product-single-display')
+    //     debugger
+    //     // productOuterDisplay.innerHTML = ""
+    // }
 
     render() {
         this.productsContainer.innerHTML = this.products.map(product => product.renderCard()).join('')
