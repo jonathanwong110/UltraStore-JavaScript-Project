@@ -8,6 +8,7 @@ class Products {
 
     initiBindingsAndEventListeners() {
         this.productsContainer = document.getElementById('products-container')
+        this.productSingleDisplay = document.getElementById('product-single-display')
         this.newProductTitle = document.getElementById('new-product-title')
         this.newProductPrice = document.getElementById('new-product-price')
         this.newProductDescription = document.getElementById('new-product-description')
@@ -18,8 +19,7 @@ class Products {
         this.productsContainer.addEventListener('blur', this.updateProduct.bind(this), true)
         this.productsContainer.addEventListener('click', this.deleteProduct.bind(this), true)
         this.productsContainer.addEventListener('click', this.showProduct.bind(this), true)
-        this.productsContainer.addEventListener('click', this.likeProduct.bind(this), true)
-        // this.productsContainer.addEventListener('click', this.closeProduct.bind(this), true)
+        this.productSingleDisplay.addEventListener('click', this.closeProduct.bind(this), true)
     }
 
     handleProductClick(e) {
@@ -55,7 +55,7 @@ class Products {
             const productOuterDisplay = document.getElementById('product-single-display')
             productOuterDisplay.innerHTML = ""
             const productInnerDisplay = document.createElement("div")
-            productInnerDisplay.setAttribute("class", "product-show")
+            productInnerDisplay.setAttribute("id", "product-show")
             productOuterDisplay.appendChild(productInnerDisplay)
             productInnerDisplay.innerHTML += '<h1>Currently Viewing</h1>'
             let superProductImage = document.createElement("img")
@@ -124,23 +124,14 @@ class Products {
         })
     }
 
-    likeProduct(e) {
+    closeProduct(e) {
         e.preventDefault()
         const card = e.target
-        const id = parseInt(card.dataset.productId)
-        if (card.attributes && card.attributes.class && card.attributes.class.value === "likeable") {
-            this.likes = parseInt(card.parentElement.children[9].innerHTML)
-            this.likes += 1
-            document.getElementById(`likes-product-id-${id}`).innerHTML = this.likes + " Like(s)"
+        if (card.attributes.class.value === "closable") {
+            const productOuterDisplay = document.getElementById('product-single-display')
+            productOuterDisplay.innerHTML = ""
         }
     }
-
-    // closeProduct(e) {
-    //     e.preventDefault()
-    //     const productOuterDisplay = document.getElementById('product-single-display')
-    //     debugger
-    //     // productOuterDisplay.innerHTML = ""
-    // }
 
     render() {
         this.productsContainer.innerHTML = this.products.map(product => product.renderCard()).join('')

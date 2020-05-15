@@ -4,7 +4,15 @@ UltraStore is a platform where users can post products while viewing other produ
 
 ## Installation
 
-Run rails s to get the server running.
+1.	Clone or download Ultrastore.
+2.	Navigate to the ultrastore-backend folder in your terminal
+3.	Run bundle install
+4.	Run rake db:migrate
+5.	Run rails s
+6.	Create another terminal
+7.	Navigate to the ultrastore-frontendfolder
+8.	Run explorer.exe index.html
+
 
 ## Contributing
 

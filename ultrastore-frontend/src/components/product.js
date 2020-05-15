@@ -19,9 +19,6 @@ class Product {
         <button class="viewable" data-product-id=${this.id}> Show Product </button>
         <button class="removable" data-product-id=${this.id}> Delete Product </button>
         <br></br>
-        <button class="likeable" data-product-id=${this.id}> Like </button>
-        <br></br>
-        <div id="likes-product-id-${this.id}">${this.likes} Likes</div>
         </div>`
         return productCard
     }
